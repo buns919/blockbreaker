@@ -45,4 +45,12 @@ public class Ball : MonoBehaviour {
         rb.velocity = startingForce;
         isBallLaunched = true;
     }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        PlayClick();
+    }
+
+    void PlayClick() {
+        GetComponent<AudioSource>().Play();
+    }
 }
