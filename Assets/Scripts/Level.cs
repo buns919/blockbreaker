@@ -16,6 +16,10 @@ public class Level : MonoBehaviour {
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
+    private void Update() {
+        UpdateScoreText();
+    }
+
     public void AddBreakableBlock() {
         numBreakableBlocks++;
     }
@@ -25,11 +29,7 @@ public class Level : MonoBehaviour {
      */
     public void IncrementScore() {
         score++;
-
-        UpdateScoreText();
-
         CheckIfWon();
-
     }
 
     private void ResetGame() {
