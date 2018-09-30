@@ -16,9 +16,28 @@ public class Level : MonoBehaviour {
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
-    private void Update() {
+    void Update() {
         UpdateScoreText();
     }
+
+    void ResetScore() {
+        score = 0;
+        numBreakableBlocks = 0;
+        scoreText.text = score.ToString();
+    }
+
+    void UpdateScoreText() {
+        string scoreString = score.ToString() + "/" + numBreakableBlocks.ToString();
+        scoreText.text = scoreString;
+    }
+
+    void CheckIfLevelWon() {
+        if (score == numBreakableBlocks) {
+            ResetScore();
+            sceneLoader.LoadNextScene();
+        }
+    }
+
 
     public void AddBreakableBlock() {
         numBreakableBlocks++;
@@ -29,24 +48,6 @@ public class Level : MonoBehaviour {
      */
     public void IncrementScore() {
         score++;
-        CheckIfWon();
-    }
-
-    private void ResetGame() {
-        score = 0;
-        numBreakableBlocks = 0;
-        scoreText.text = score.ToString();
-    }
-
-    private void UpdateScoreText() {
-        string scoreString = score.ToString() + "/" + numBreakableBlocks.ToString();
-        scoreText.text = scoreString;
-    }
-
-    private void CheckIfWon() {
-        if (score == numBreakableBlocks) {
-            ResetGame();
-            sceneLoader.LoadNextScene();
-        }
+        CheckIfLevelWon();
     }
 }
