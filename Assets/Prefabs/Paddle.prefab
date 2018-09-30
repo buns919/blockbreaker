@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddleMinX: 1
-  paddleMaxX: 16
+  paddleMaxX: 15
   ballBounceSound: {fileID: 8300000, guid: dc2f40d2f217fa94fbfe832aed89606c, type: 3}
   screenWidthUnits: 16
 --- !u!212 &212260565968719476

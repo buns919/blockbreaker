@@ -24,12 +24,14 @@ public class Paddle : MonoBehaviour {
     }
 
     void movePaddle() {
+        // translate mouse x pos to world units
         float mousePosInUnits = (Input.mousePosition.x / Screen.width * screenWidthUnits);
 
+        // force the movement within the bounds of the playable area
         float clampedX = Mathf.Clamp(mousePosInUnits, paddleMinX, paddleMaxX);
         Vector2 paddlePos = new Vector2(clampedX, startingYPos);
 
-
+        // set the position
         transform.position = paddlePos;
     }
 

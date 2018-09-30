@@ -6,35 +6,38 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour {
 
-    [SerializeField] int breakableBlocks = 0; // serialized for debugging
+    [SerializeField] int numBreakableBlocks = 0; // serialized for debugging
     [SerializeField] Text scoreText;
     int score = 0;
     SceneLoader sceneLoader;
 
 	// Use this for initialization
 	void Start () {
-        
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void AddBreakableBlock() {
-        breakableBlocks++;
+        numBreakableBlocks++;
     }
 
+    /**
+     * Blocks will call this on collision
+     */
     public void IncrementScore() {
-        Debug.Log("Increment score");
         score++;
 
-        string scoreString = score.ToString() + "/" + breakableBlocks.ToString();
-        Debug.Log("Score string: " + scoreString);
+        UpdateScoreText();
 
+        CheckIfWon();
+    }
+
+    private void UpdateScoreText() {
+        string scoreString = score.ToString() + "/" + numBreakableBlocks.ToString();
         scoreText.text = scoreString;
-        if (score == breakableBlocks) {
+    }
+
+    private void CheckIfWon() {
+        if (score == numBreakableBlocks) {
             ResetGame();
             sceneLoader.LoadNextScene();
         }
@@ -42,7 +45,7 @@ public class Level : MonoBehaviour {
 
     private void ResetGame() {
         score = 0;
-        breakableBlocks = 0;
+        numBreakableBlocks = 0;
         scoreText.text = score.ToString();
     }
 }
