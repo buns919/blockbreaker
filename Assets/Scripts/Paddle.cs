@@ -9,11 +9,13 @@ public class Paddle : MonoBehaviour {
 
     float startingYPos;
     bool isAutoPlayEnabled = false;
+    Ball ball;
 
     // Use this for initialization
     void Start() {
         startingYPos = transform.position.y;
         isAutoPlayEnabled = FindObjectOfType<GameStatus>().IsAutoPlayEnabled();
+        ball = FindObjectOfType<Ball>();
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class Paddle : MonoBehaviour {
 
     private float GetXPos() {
         if (isAutoPlayEnabled) {
-            return FindObjectOfType<Ball>().transform.position.x + Random.Range(-0.4f, 0.4f);
+            return ball.transform.position.x + Random.Range(-0.4f, 0.4f);
         }
         else {
             // translate mouse x pos to world units
