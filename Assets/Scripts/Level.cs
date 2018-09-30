@@ -27,22 +27,28 @@ public class Level : MonoBehaviour {
     }
 
     public void IncrementScore() {
-        Debug.Log("Increment score");
         score++;
 
-        string scoreString = score.ToString() + "/" + breakableBlocks.ToString();
-        Debug.Log("Score string: " + scoreString);
+        UpdateScoreText();
 
-        scoreText.text = scoreString;
-        if (score == breakableBlocks) {
-            ResetGame();
-            sceneLoader.LoadNextScene();
-        }
+        CheckIfWon();
     }
 
     private void ResetGame() {
         score = 0;
         breakableBlocks = 0;
         scoreText.text = score.ToString();
+    }
+
+    private void UpdateScoreText() {
+        string scoreString = score.ToString() + "/" + breakableBlocks.ToString();
+        scoreText.text = scoreString;
+    }
+
+    private void CheckIfWon() {
+        if (score == breakableBlocks) {
+            ResetGame();
+            sceneLoader.LoadNextScene();
+        }
     }
 }
