@@ -29,6 +29,13 @@ public class Level : MonoBehaviour {
         UpdateScoreText();
 
         CheckIfWon();
+
+    }
+
+    private void ResetGame() {
+        score = 0;
+        numBreakableBlocks = 0;
+        scoreText.text = score.ToString();
     }
 
     private void UpdateScoreText() {
@@ -41,11 +48,5 @@ public class Level : MonoBehaviour {
             ResetGame();
             sceneLoader.LoadNextScene();
         }
-    }
-
-    private void ResetGame() {
-        score = 0;
-        numBreakableBlocks = 0;
-        scoreText.text = score.ToString();
     }
 }
