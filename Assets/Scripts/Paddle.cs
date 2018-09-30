@@ -6,17 +6,18 @@ public class Paddle : MonoBehaviour {
 
     [SerializeField] float paddleMinX = 1f;
     [SerializeField] float paddleMaxX = 15f;
+    [SerializeField] AudioClip ballBounceSound;
 
     [SerializeField] float screenWidthUnits = 16f;
     float startingYPos;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         startingYPos = transform.position.y;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
 
         movePaddle();
 
@@ -30,5 +31,9 @@ public class Paddle : MonoBehaviour {
 
 
         transform.position = paddlePos;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        AudioSource.PlayClipAtPoint(ballBounceSound, Camera.main.transform.position);
     }
 }
