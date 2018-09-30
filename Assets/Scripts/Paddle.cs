@@ -7,8 +7,8 @@ public class Paddle : MonoBehaviour {
     [SerializeField] float paddleMinX = 1f;
     [SerializeField] float paddleMaxX = 15f;
     [SerializeField] AudioClip ballBounceSound;
-
     [SerializeField] float screenWidthUnits = 16f;
+
     float startingYPos;
 
     // Use this for initialization

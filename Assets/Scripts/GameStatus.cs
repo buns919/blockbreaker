@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStatus : MonoBehaviour {
 
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +19,7 @@ public class GameStatus : MonoBehaviour {
     /**
      * You can next canvas underneath this game obj to persist it between levels
      */
-    private void Awake() {
+    void Awake() {
         int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
         if (gameStatusCount > 1) {
             Destroy(gameObject);

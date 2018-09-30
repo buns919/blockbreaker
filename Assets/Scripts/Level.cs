@@ -8,6 +8,7 @@ public class Level : MonoBehaviour {
 
     [SerializeField] int numBreakableBlocks = 0; // serialized for debugging
     [SerializeField] Text scoreText;
+
     int score = 0;
     SceneLoader sceneLoader;
 

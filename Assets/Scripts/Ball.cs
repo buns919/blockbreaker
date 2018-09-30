@@ -6,8 +6,8 @@ public class Ball : MonoBehaviour {
 
     [SerializeField] Paddle paddle;
     [SerializeField] float startingSpeed = 40f;
-    float startingXDirection;
 
+    float startingXDirection;
     bool isBallLaunched = false;
     Vector2 paddleToBallVector;
 
