@@ -2,11 +2,14 @@
 
 public class GameStatus : MonoBehaviour {
 
+    [SerializeField] bool isAutoPlayEnabled = false;
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
 
 	// Use this for initialization
 	void Start () {
-		
+		if (isAutoPlayEnabled) {
+            gameSpeed = gameSpeed * 5;
+        }
 	}
 	
 	// Update is called once per frame
@@ -25,5 +28,9 @@ public class GameStatus : MonoBehaviour {
         else {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public bool IsAutoPlayEnabled() {
+        return isAutoPlayEnabled;
     }
 }
