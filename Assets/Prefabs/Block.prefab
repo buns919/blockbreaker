@@ -79,6 +79,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakSound: {fileID: 8300000, guid: af6068405e37a62489fea6e19a0d9f3c, type: 3}
+  unbreakableBlockSound: {fileID: 8300000, guid: 20bbe9280e8181c4f9794825a7056857,
+    type: 3}
+  blockParticles: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 2}
+  timeTillDestroyParticles: 1
+  hitSprites:
+  - {fileID: 21300000, guid: bc37614fcf77d2b41a21803196875fa1, type: 3}
+  - {fileID: 21300000, guid: 1a5c366c445f34f42b5378c5b7291a56, type: 3}
 --- !u!212 &212259338172939818
 SpriteRenderer:
   m_ObjectHideFlags: 1
